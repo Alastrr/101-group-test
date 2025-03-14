@@ -1,0 +1,189 @@
+@font-face {
+  font-family: 'Jost';
+  src: url('fonts/Jost-Regular.ttf') format('truetype');
+}
+
+* {
+  font-family: 'Jost';
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.container {
+  margin: auto;
+  max-width: 56rem;
+  @media (max-width: 56rem) {
+    margin: 0 1rem;
+  }
+}
+
+.navbar {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.logo {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  font-weight: 900;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+button.disabled {
+  cursor: default;
+  color: #a0a0a0;
+}
+
+.grid-elem-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media (max-width: 56rem) {
+    display: ruby;
+  }
+}
+
+.block-filter-panel {
+  border: 1px solid #f3f3f3;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.block-filtered select {
+  margin: 0.2rem;
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.block-filtered input {
+  margin: 0.2rem;
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.table {
+  width: 100%;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.table thead {
+  height: 50px;
+}
+
+.table thead th {
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  background: #eee;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.table thead tr th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.table thead tr th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.table tbody td {
+  text-align: center;
+  border: none;
+  font-size: 14px;
+  vertical-align: top;
+  vertical-align: middle;
+  height: 30px;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f3f3f3;
+}
+
+.table tbody tr td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.table tbody tr td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.block-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #f3f3f3;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+button.prev-page {
+  margin-right: 0.5rem;
+}
+
+button.next-page {
+  margin-left: 0.5rem;
+}
+
+input::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.dp__input {
+  color: black;
+  border: none;
+}
+
+.dp__input:hover:not(.dp__input_focus) {
+  border-color: transparent !important;
+}
+
+.dp__main.dp__theme_light {
+  display: ruby;
+  font-size: 0.9rem;
+}
+
+input.dp__pointer.dp__input_readonly.dp__input.dp__input_icon_pad.dp__input_reg {
+  padding-left: 1.9rem;
+  max-width: 140px;
+  height: 2.1rem;
+  font-family: 'Jost';
+}
+
+svg.dp__input_icon.dp__input_icons {
+  color: black;
+  padding-left: 0.5rem;
+}
+
+.dp__icon {
+  stroke: rgb(0 0 0) !important;
+  fill: rgb(0 0 0) !important;
+  padding-right: 1rem !important;
+}
