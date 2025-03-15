@@ -30,3 +30,23 @@ const { items, page } = storeToRefs(store)
     <span>Всего: {{ items?.items }}</span>
   </div>
 </template>
+
+<style scoped>
+.block-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #f3f3f3;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+button.prev-page {
+  margin-right: 0.5rem;
+}
+
+button.next-page {
+  margin-left: 0.5rem;
+}
+</style>

@@ -1,7 +1,7 @@
 import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { format } from 'date-fns'
-import axios from 'axios'
+import transactionService from '../api/services/transactions'
 
 export const useStore = defineStore('transactionStore', () => {
   const page = ref<Number>(1)
@@ -63,7 +63,17 @@ export const useStore = defineStore('transactionStore', () => {
     return ''
   })
 
-  const concatSort = computed<string>(() => sort.value.byDate + ',' + sort.value.bySum)
+  const concatSort = computed<string>(() =>{
+    let sortDate: string = "";
+    let sortSum: string = "";
+    if (sort.value.byDate){
+      sortDate = sort.value.byDate === "asc" ? "-date" : "date";
+    }
+    if (sort.value.bySum){
+      sortSum = sort.value.bySum === "asc" ? "-amount" : "amount";
+    }
+    return sortDate + ',' + sortSum
+  })
 
   interface QueryParams {
     type: string
@@ -85,20 +95,15 @@ export const useStore = defineStore('transactionStore', () => {
     }
   })
 
-  watch(
-    queryParams,
-    async () => {
-      try {
-        const response = await axios.get<Response>('http://localhost:3000/transactions/', {
-          params: queryParams.value,
-        })
-        items.value = response.data
-      } catch (error) {
-        console.error(error)
-      }
-    },
-    { immediate: true },
-  )
+  async function getTransactions(): Promise<void> {
+    try {
+      items.value = await transactionService.getTransactions(queryParams.value)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  watch(queryParams, getTransactions, { immediate: true })
 
   watch([filter.value, sort.value], () => (page.value = 1))
 

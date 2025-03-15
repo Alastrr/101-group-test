@@ -17,20 +17,19 @@ const typeTransaction = <Select[]>[
 
 const sortByDate = <Select[]>[
   { title: 'Дата транзакции', value: '' },
-  { title: 'Новые', value: '-date' },
-  { title: 'Старые', value: 'date' }
+  { title: 'Новые', value: 'asc' },
+  { title: 'Старые', value: 'desc' }
 ]
 
 const sortBySum = <Select[]>[
   { title: 'Сортировка по сумме', value: '' },
-  { title: 'Больше', value: '-amount' },
-  { title: 'Меньше', value: 'amount' }
+  { title: 'Больше', value: 'asc' },
+  { title: 'Меньше', value: 'desc' }
 ]
 </script>
 
 <template>
 	<div class="block-filter-panel">
-		<div class="grid-elem-2">
       <div class="block-filtered">
 
         <select v-model="store.filter.typeItem">
@@ -71,6 +70,37 @@ const sortBySum = <Select[]>[
           &#10006
         </button>
       </div>
-    </div>
 	</div>
 </template>
+
+<style>
+.block-filter-panel {
+  border: 1px solid #f3f3f3;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.block-filtered select {
+  margin: 0.2rem;
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.block-filtered input {
+  margin: 0.2rem;
+  background-color: #eee;
+  border: 1px solid #eee;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+</style>
